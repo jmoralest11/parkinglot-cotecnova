@@ -114,9 +114,8 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $person = Person::destroy($id);
-        return redirect(route('persons.index'))->with('Mensaje', 'Usuario Eliminado con éxito!');
+
     }
 }

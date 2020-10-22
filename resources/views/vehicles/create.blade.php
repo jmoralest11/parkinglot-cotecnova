@@ -22,13 +22,11 @@
     <div class="form-group">
         <label for="marca">Marca</label>
         <select name="marca" class="form-control">
-            <option value="Renault">Renault</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Yamaha">Yamaha</option>
-            <option value="Audi">Audi</option>
+            @foreach ($brands as $brand)
+                <option value="{{$brand->id}}">{{$brand->marca}}</option>
+            @endforeach
         </select>
     </div>
-
 
     <div class="form-group">
         <label for="color">Color</label>
@@ -38,7 +36,8 @@
             <option value="Blanco">Blanco</option>
             <option value="Amarillo">Amarillo</option>
             <option value="Verde">Verde</option>
-            <option value="Cafe">Café</option>
+            <option value="Cafe">Morado</option>
+            <option value="Cafe">Naranja</option>
             <option value="Azul">Azul</option>
             <option value="Plateado">Plateado</option>
             <option value="Gris">Gris</option>

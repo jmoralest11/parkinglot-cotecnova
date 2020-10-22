@@ -15,4 +15,8 @@ class InputOutput extends Model
         'vehicle_id', 'person_id', 'estado'
     ];
 
+    public function vehicles(){
+        return $this->belongsTo(Vehicle::class, 'vehicle_id');
+    }
+
 }

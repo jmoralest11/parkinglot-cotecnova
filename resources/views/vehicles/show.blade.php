@@ -10,9 +10,10 @@
             <tr class="thead-dark">
                 <th>Imagen</th>
                 <th>Cédula</th>
-                <th>Nombre</th>
+                <th>Propietario</th>
                 <th>Placa</th>
                 <th>Marca</th>
+                <th>Color</th>
                 <th>Fecha Creación</th>
             </tr>
             <tr>
@@ -22,7 +23,8 @@
                 <td>{{$vehicle->person->cedula}}</td>
                 <td>{{$vehicle->person->name}} {{$vehicle->person->apellidos}}</td>
                 <td>{{$vehicle->placa}}</td>
-                <td>{{$vehicle->marca}}</td>
+                <td>{{$vehicle->brand->marca}}</td>
+                <td>{{$vehicle->color}}</td>
                 <td>{{$vehicle->created_at}}</td>
             </tr>
         </table>

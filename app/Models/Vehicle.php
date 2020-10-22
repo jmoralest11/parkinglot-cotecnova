@@ -19,4 +19,8 @@ class Vehicle extends Model
         return $this->belongsTo(Person::class, 'person_id');
     }
 
+    public function brand(){
+        return $this->belongsTo(Brand::class, 'marca_id');
+    }
+
 }

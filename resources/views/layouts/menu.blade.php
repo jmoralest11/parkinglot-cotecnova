@@ -16,7 +16,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a href="{{url('/listado')}}" class="nav-link {{Request::is('listado') ? 'active' : ''}}">
+                    <a href="{{url('/inputs_outputs')}}" class="nav-link {{Request::is('inputs_outputs') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-forward" id="entradas-salidas" aria-hidden="true"></i>
                         <p>Entradas y Salidas</p>
                     </a>
@@ -30,16 +30,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{url('/vehicles')}}" class="nav-link {{Request::is('listado') ? 'active' : ''}}">
+                    <a href="{{url('/vehicles')}}" class="nav-link {{Request::is('vehicles') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-car" id="vehiculo" aria-hidden="true"></i>
                         <p>Vehículos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{url('/listadoFacturas')}}" class="nav-link {{Request::is('listadoFacturas') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-calendar-minus-o" id="reportes" aria-hidden="true"></i>
-                        <p>Reportes</p>
                     </a>
                 </li>
 

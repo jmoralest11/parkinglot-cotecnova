@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\InputOutput;
+use App\Models\Person;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
+
+use function Ramsey\Uuid\v1;
 
 class InputOutputController extends Controller
 {
@@ -14,7 +18,8 @@ class InputOutputController extends Controller
      */
     public function index()
     {
-        //
+        $InputOutputs = InputOutput::all();
+        return view('inputs_outputs.index', compact('InputOutputs'));
     }
 
     /**
@@ -24,7 +29,8 @@ class InputOutputController extends Controller
      */
     public function create()
     {
-        //
+        $vehicles = Vehicle::all();
+        return view('inputs_outputs.create', compact('vehicles'));
     }
 
     /**
@@ -35,7 +41,20 @@ class InputOutputController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'vehicle_id' => 'required|numeric',
+            'person_id' => 'required|numeric',
+            'estado' => 'required|string',
+        ]);
+
+        $InputOutput = new InputOutput();
+        $InputOutput->vehicle_id = $request->input('vehicle_id');
+        $InputOutput->person_id = $request->input('person_id');
+        $InputOutput->estado = $request->input('estado');
+
+        $InputOutput->save();
+
+        return redirect(route('inputs_outputs.index'))->with('Mensaje', 'Registrado con éxito!');
     }
 
     /**
@@ -44,7 +63,7 @@ class InputOutputController extends Controller
      * @param  \App\Models\InputOutput  $inputOutput
      * @return \Illuminate\Http\Response
      */
-    public function show(InputOutput $inputOutput)
+    public function show()
     {
         //
     }
@@ -55,9 +74,11 @@ class InputOutputController extends Controller
      * @param  \App\Models\InputOutput  $inputOutput
      * @return \Illuminate\Http\Response
      */
-    public function edit(InputOutput $inputOutput)
+    public function edit($id)
     {
-        //
+        $InputOutput = InputOutput::findOrFail($id);
+        $vehicles = Vehicle::all();
+        return view('inputs_outputs.edit', compact('InputOutput', 'vehicles'));
     }
 
     /**
@@ -67,9 +88,15 @@ class InputOutputController extends Controller
      * @param  \App\Models\InputOutput  $inputOutput
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InputOutput $inputOutput)
+    public function update(Request $request, $id)
     {
-        //
+        $InputOutput = InputOutput::findOrFail($id);
+        $InputOutput->vehicle_id = $request->input('vehicle_id');
+        $InputOutput->person_id = $request->input('person_id');
+        $InputOutput->estado = $request->input('estado');
+        $InputOutput->save();
+
+        return redirect(route('inputs_outputs.index'))->with('Mensaje', 'Modificado con éxito!');
     }
 
     /**

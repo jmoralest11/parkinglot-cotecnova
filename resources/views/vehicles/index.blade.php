@@ -2,10 +2,10 @@
 @section('title', 'Listar Vehículos')
 @section('content')
 
-    <h1>Listado de Vehículos</h1>
+    <h1 class="mr-5">Listado de Vehículos</h1>
 
     <hr>
-
+    
     <a href="{{route('vehicles.create')}}" class="btn btn-info">Registrar Vehículo</a>
 
     <hr>
@@ -24,17 +24,12 @@
             @foreach($vehicles as $vehicle)
             <tr>
                 <td>{{$vehicle->placa}}</td>
-                <td>{{$vehicle->marca}}</td>
+                <td>{{$vehicle->brand->marca}}</td>
                 <td>{{$vehicle->person->cedula}}</td>
                 <td>{{$vehicle->person->name}} {{$vehicle->person->apellidos}}</td>
                 <td>
                     <a href="{{route('vehicles.show', $vehicle->id)}}" class="btn btn-primary">Ver</a>
                     <a href="{{route('vehicles.edit', $vehicle->id)}}" class="btn btn-warning">Editar</a>
-                    <form action="{{route('vehicles.destroy', $vehicle->id)}}" method="POST">
-                        @csrf()
-                        {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
                 </td>
             </tr>
             @endforeach

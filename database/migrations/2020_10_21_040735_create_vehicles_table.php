@@ -16,7 +16,8 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string('placa', 255)->unique();
-            $table->string('marca', 255);
+            $table->unsignedBigInteger('marca_id');
+            $table->foreign('marca_id')->references('id')->on('brand');
             $table->string('color', 255);
             $table->unsignedBigInteger('person_id');
             $table->foreign('person_id')->references('id')->on('persons');

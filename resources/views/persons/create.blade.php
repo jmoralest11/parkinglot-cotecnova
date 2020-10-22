@@ -85,7 +85,7 @@
         @endif
     </div>
 
-    <button type="submit" class="btn btn-primary">Crear Usuario</button>
+    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
     <a href="{{route('persons.index')}}" class="btn btn-success">Ir Atrás</a>
 </form>
 @endsection

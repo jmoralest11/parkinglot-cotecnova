@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use App\Models\Person;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -27,7 +28,8 @@ class VehicleController extends Controller
     public function create()
     {
         $persons = Person::all();
-        return view('vehicles.create', compact('persons'));
+        $brands = Brand::all();
+        return view('vehicles.create', compact('persons', 'brands'));
     }
 
     /**
@@ -39,7 +41,7 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'placa' => 'required|string|max:10',
+            'placa' => 'required|string|unique:vehicles',
             'marca' => 'required|string',
             'color' => 'required|string',
             'person_id' => 'required|numeric'
@@ -47,7 +49,7 @@ class VehicleController extends Controller
 
         $vehicle = new Vehicle();
         $vehicle->placa = $request->input('placa');
-        $vehicle->marca = $request->input('marca');
+        $vehicle->marca_id = $request->input('marca');
         $vehicle->color = $request->input('color');
         $vehicle->person_id = $request->input('person_id');
 
@@ -104,9 +106,8 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $vehicle = Vehicle::destroy($id);
-        return redirect(route('vehicles.index'))->with('Mensaje', 'Vehículo Eliminado con éxito!');
+        
     }
 }

@@ -36,11 +36,6 @@
                 <td>
                     <a href="{{route('persons.show', $person->id)}}" class="btn btn-primary">Ver</a>
                     <a href="{{route('persons.edit', $person->id)}}" class="btn btn-warning">Editar</a>
-                    <form action="{{route('persons.destroy', $person->id)}}" method="POST">
-                        @csrf()
-                        {{method_field('DELETE')}}
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
                 </td>
             </tr>
             @endforeach
