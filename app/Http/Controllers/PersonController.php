@@ -37,7 +37,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cedula' => 'required|numeric|unique:persons|max:12',
+            'cedula' => 'required|numeric|unique:persons',
             'nombre' => 'required|string',
             'apellidos' => 'required|string',
             'email' => 'required|email|string|unique:persons',
