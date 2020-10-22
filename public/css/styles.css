@@ -1,0 +1,28 @@
+#img-dashboard {
+    display: block;
+    margin: auto;
+}
+
+#entradas-salidas {
+    color: green;
+}
+
+#usuario {
+    color: slateblue;
+}
+
+#vehiculo {
+    color: brown;
+}
+
+#reportes {
+    color: seagreen;
+}
+
+#infraestructura {
+    color: sienna;
+}
+
+#parqueadero {
+    color: yellowgreen;
+}
