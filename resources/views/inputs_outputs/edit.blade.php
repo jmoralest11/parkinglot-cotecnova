@@ -25,8 +25,8 @@
     <div class="form-group">
         <label for="estado">Estado</label>
         <select name="estado" class="form-control">
-            <option value="En Parqueadero">En Parqueadero</option>
-            <option value="Fuera de Parqueadero">Fuera de Parqueadero</option>
+            <option value="1">En Parqueadero</option>
+            <option value="2">Fuera de Parqueadero</option>
         </select>
     </div>
 

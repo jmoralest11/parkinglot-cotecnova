@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InputOutput;
+use App\Models\Parking;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -18,7 +19,8 @@ class ReportController extends Controller
         } else {
             $registros = InputOutput::all();
         }
-        $pdf = \PDF::loadView('reports.report', compact('registros'));
+        $info_parking = Parking::findOrFail(1);
+        $pdf = \PDF::loadView('reports.report', compact('registros', 'info_parking'));
         return $pdf->download('reporte.pdf');
     }
 }

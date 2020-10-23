@@ -43,10 +43,10 @@
             @foreach($InputOutputs as $InputOutput)
             <tr>
                 <td>{{$InputOutput->vehicles->placa}}</td>
-                @if($InputOutput->estado == 'En Parqueadero')
-                    <td class="green" style="font-weight: bold;">{{$InputOutput->estado}}</td>
+                @if($InputOutput->estado == 1)
+                    <td class="green" style="font-weight: bold;">En Parqueadero</td>
                 @else
-                    <td class="yellow" style="font-weight: bold;">{{$InputOutput->estado}}</td>
+                    <td class="yellow" style="font-weight: bold;">Fuera de Parqueadero</td>
                 @endif
                 <td>{{$InputOutput->created_at}}</td>
                 <td>{{$InputOutput->updated_at}}</td>

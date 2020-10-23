@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InputOutput;
+use App\Models\Parking;
 use App\Models\Person;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class InputOutputController extends Controller
         $request->validate([
             'vehicle_id' => 'required|numeric',
             'person_id' => 'required|numeric',
-            'estado' => 'required|string',
+            'estado' => 'required|numeric',
         ]);
 
         $InputOutput = new InputOutput();
@@ -53,6 +54,10 @@ class InputOutputController extends Controller
         $InputOutput->estado = $request->input('estado');
 
         $InputOutput->save();
+
+        $info_farking = Parking::findOrFail(1);
+        $info_farking->cupos = ($info_farking->cupos - 1);
+        $info_farking->save();
 
         return redirect(route('inputs_outputs.index'))->with('Mensaje', 'Registrado con éxito!');
     }
@@ -93,6 +98,12 @@ class InputOutputController extends Controller
         $InputOutput = InputOutput::findOrFail($id);
         $InputOutput->vehicle_id = $request->input('vehicle_id');
         $InputOutput->person_id = $request->input('person_id');
+        $InputOutput->estado = $request->input('estado');
+        if($request->input('estado') == 2){
+            $info_farking = Parking::findOrFail(1);
+            $info_farking->cupos = ($info_farking->cupos + 1);
+            $info_farking->save();
+        }
         $InputOutput->estado = $request->input('estado');
         $InputOutput->save();
 

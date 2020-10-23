@@ -19,7 +19,7 @@ class CreateInputsOutputsTable extends Migration
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->unsignedBigInteger('person_id');
             $table->foreign('person_id')->references('id')->on('persons');
-            $table->string('estado');
+            $table->integer('estado');
             $table->timestamps();
         });
     }
