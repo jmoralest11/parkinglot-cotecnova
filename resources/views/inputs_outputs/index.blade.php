@@ -10,17 +10,22 @@
 
     <hr>
 
-    <div class="row">
-        <div class="form-group col-md-5">
-            <label for="fecha_inicio">Fecha Inicio</label>
-            <input type="date" name="fecha_inicio" class="form-control" placeholder="Ingrese Nombre del Usuario">     
-        </div>
+    <form action="{{route('visualizar-reporte')}}" method="POST">
+        @csrf()
 
-        <div class="form-group col-md-5">
-            <label for="fecha_fin">Fecha Final</label>
-            <input type="date" name="fecha_fin" class="form-control" placeholder="Ingrese Nombre del Usuario">     
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="fecha_inicio">Fecha Inicio</label>
+                <input type="date" name="fecha_inicio" class="form-control" placeholder="Ingrese Nombre del Usuario">     
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="fecha_fin">Fecha Final</label>
+                <input type="date" name="fecha_fin" class="form-control" placeholder="Ingrese Nombre del Usuario">     
+            </div>
         </div>
-    </div>
+        <button type="submit" class="btn btn-info">Reporte</button>
+    </form>
 
     <hr>
 

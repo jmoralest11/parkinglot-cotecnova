@@ -23,4 +23,6 @@ Route::middleware('auth')->group(function(){
     Route::resource('/vehicles', VehicleController::class);
 
     Route::resource('/inputs_outputs', InputOutputController::class);
+
+    Route::post('/report', [ReportController::class, 'index'])->name('visualizar-reporte');
 });
