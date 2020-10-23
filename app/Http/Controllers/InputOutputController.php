@@ -19,7 +19,7 @@ class InputOutputController extends Controller
      */
     public function index()
     {
-        $InputOutputs = InputOutput::all();
+        $InputOutputs = InputOutput::where('estado', '=', 1)->get();
         return view('inputs_outputs.index', compact('InputOutputs'));
     }
 

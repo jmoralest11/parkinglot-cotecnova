@@ -14,6 +14,12 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{url('/parking')}}" class="nav-link {{Request::is('parking') ? 'active' : ''}}">
+                        <i class="fa fa fa-map-marker nav-icon" id="parqueadero" aria-hidden="true"></i>
+                        <p>Parqueadero</p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="{{url('/inputs_outputs')}}" class="nav-link {{Request::is('inputs_outputs') ? 'active' : ''}}">
@@ -40,13 +46,6 @@
                     <a href="{{url('/infrastructure')}}" class="nav-link {{Request::is('infrastructure') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-building" id="infraestructura" aria-hidden="true"></i>
                         <p>Infraestructura</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{url('/productos')}}" class="nav-link {{Request::is('productos') ? 'active' : ''}}">
-                        <i class="fa fa fa-map-marker nav-icon" id="parqueadero" aria-hidden="true"></i>
-                        <p>Parqueadero</p>
                     </a>
                 </li>
             </ul>

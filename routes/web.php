@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InfrastructureController;
 use App\Http\Controllers\InputOutputController;
+use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VehicleController;
@@ -23,6 +24,8 @@ Route::middleware('auth')->group(function(){
     Route::resource('/vehicles', VehicleController::class);
 
     Route::resource('/inputs_outputs', InputOutputController::class);
+
+    Route::resource('/parking', ParkingController::class);
 
     Route::post('/report', [ReportController::class, 'index'])->name('visualizar-reporte');
 });

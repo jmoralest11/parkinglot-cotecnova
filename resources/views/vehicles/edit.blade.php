@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label for="placa">Placa</label>
-        <input type="text" name="placa" class="form-control {{ $errors->has('placa')? 'is-invalid' : '' }}" placeholder="Ingrese Placa del Vehículo" value="{{$vehicle->placa}}" required>
+        <input type="text" name="placa" class="form-control" placeholder="Ingrese Placa del Vehículo" value="{{$vehicle->placa}}" required>
     </div>
 
     <div class="form-group">

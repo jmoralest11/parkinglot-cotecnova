@@ -30,7 +30,11 @@
             @foreach($registros as $registro)
             <tr>
                 <td>{{$registro->vehicles->placa}}</td>
-                <td>{{$registro->estado}}</td>
+                @if($registro->estado == 1)
+                    <td>En Parqueadero</td>
+                @else
+                    <td>Fuera de Parqueadero</td>
+                @endif
                 <td>{{$registro->created_at}}</td>
                 <td>{{$registro->updated_at}}</td>
             </tr>

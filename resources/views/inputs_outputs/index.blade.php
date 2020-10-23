@@ -6,6 +6,7 @@
         <h1 class="mr-4">Listado Entradas y Salidas</h1>
         
         <a href="{{route('inputs_outputs.create')}}" class="btn btn-info">Registrar</a>
+
     </div>
 
     <hr>
