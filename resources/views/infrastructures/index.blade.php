@@ -24,7 +24,13 @@
             @foreach($infrastructures as $infrastructure)
             <tr>
                 <td>{{$infrastructure->tipo_necesidad}}</td>
-                <td>{{$infrastructure->prioridad}}</td>
+                @if($infrastructure->prioridad == 'Alta')
+                    <td class="red" style="font-weight: bold;">{{$infrastructure->prioridad}}</td>
+                @elseif($infrastructure->prioridad == 'Media')
+                    <td class="yellow" style="font-weight: bold;">{{$infrastructure->prioridad}}</td>
+                @else
+                    <td class="green" style="font-weight: bold;">{{$infrastructure->prioridad}}</td>
+                @endif
                 <td>{{$infrastructure->estado}}</td>
                 <td>{{$infrastructure->created_at}}</td>
                 <td>

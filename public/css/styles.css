@@ -26,3 +26,15 @@
 #parqueadero {
     color: yellowgreen;
 }
+
+.green {
+    background-color: #428a32;
+}
+
+.red {
+    background-color: #ad2e2b;
+}
+
+.yellow {
+    background-color: #c29b2f;
+}

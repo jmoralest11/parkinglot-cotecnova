@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InputOutput;
 use Illuminate\Http\Request;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -11,7 +12,13 @@ class ReportController extends Controller
     {
         $fecha_inicio = $request->input('fecha_inicio');
         $fecha_fin = $request->input('fecha_fin');
-        $registros = InputOutput::where('created_at', '>=', $fecha_inicio)->where('updated_at', '<=', $fecha_fin)->get();
-        return view('reports.report', compact('registros'));
+
+        if(!empty($fecha_inicio) && !empty($fecha_fin)) {
+            $registros = InputOutput::where('created_at', '>=', $fecha_inicio)->where('updated_at', '<=', $fecha_fin)->get();
+        } else {
+            $registros = InputOutput::all();
+        }
+        $pdf = \PDF::loadView('reports.report', compact('registros'));
+        return $pdf->download('reporte.pdf');
     }
 }

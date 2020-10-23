@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <h1 class="mr-4">Listar Entradas y Salidas</h1>
+        <h1 class="mr-4">Listado Entradas y Salidas</h1>
         
         <a href="{{route('inputs_outputs.create')}}" class="btn btn-info">Registrar</a>
     </div>
@@ -24,7 +24,7 @@
                 <input type="date" name="fecha_fin" class="form-control" placeholder="Ingrese Nombre del Usuario">     
             </div>
         </div>
-        <button type="submit" class="btn btn-info">Reporte</button>
+        <button type="submit" class="btn btn-info">Generar Reporte</button>
     </form>
 
     <hr>
@@ -43,7 +43,11 @@
             @foreach($InputOutputs as $InputOutput)
             <tr>
                 <td>{{$InputOutput->vehicles->placa}}</td>
-                <td>{{$InputOutput->estado}}</td>
+                @if($InputOutput->estado == 'En Parqueadero')
+                    <td class="green" style="font-weight: bold;">{{$InputOutput->estado}}</td>
+                @else
+                    <td class="yellow" style="font-weight: bold;">{{$InputOutput->estado}}</td>
+                @endif
                 <td>{{$InputOutput->created_at}}</td>
                 <td>{{$InputOutput->updated_at}}</td>
                 <td>
